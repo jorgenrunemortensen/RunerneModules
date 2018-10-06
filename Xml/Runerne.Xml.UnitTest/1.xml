@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <addresses>
+    <address id="1">
+      <address-line>Vesterbygdvej 10</address-line>
+      <postal-code>3650</postal-code>
+      <city>Ølstykke</city>
+      <country>DK</country>
+    </address>  
+  </addresses>
+  
+  <persons>
+    <person>
+      <first-name>Jørgen</first-name>
+      <last-name>Mortensen</last-name>
+      <address-ref id="1"/>
+    </person>
+    
+    <person>
+      <first-name>Bente</first-name>
+      <last-name>Mortensen</last-name>
+      <address-ref id="1"/>
+    </person>
+  </persons>
+</root>

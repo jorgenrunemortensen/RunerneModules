@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://runerne.dk/Instantiation.Xml"
+  elementFormDefault="qualified"
+  id="context"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://runerne.dk/Instantiation.Xml" 
+  xmlns:i="http://runerne.dk/Instantiation.Xml" 
+  >
+	<xs:element name="context" type="contextType">
+		<xs:unique name="UniqueNamedInstance">
+			<xs:selector xpath="i:instances/*"/>
+			<xs:field xpath="@name"/>
+		</xs:unique>
+		<xs:key name="pkNamedInstance">
+			<xs:selector xpath="i:instances/*"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="contextType">
+		<xs:sequence>
+			<xs:element name="includes" type="includesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="instances" type="named-instancesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name-mappings" type="name-mappingsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="includesType">
+		<xs:sequence>
+			<xs:element name="include" type="file-pathType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="named-instancesType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element name="simple-instance" type="named-simple-instanceType"/>
+				<xs:element name="complex-instance" type="named-complex-instanceType"/>
+				<xs:element name="static-instance" type="named-static-instanceType"/>
+				<xs:element name="reference" type="named-referenceType"/>
+				<xs:element name="list" type="named-listType"/>
+				<xs:element name="null-instance" type="named-null-instanceType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="simple-instanceType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="typeType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="named-simple-instanceType">
+		<xs:complexContent>
+			<xs:extension base="simple-instanceType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="static-instanceType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="typeType" use="required"/>
+				<xs:attribute name="member" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="named-static-instanceType">
+		<xs:complexContent>
+			<xs:extension base="static-instanceType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="named-null-instanceType">
+		<xs:simpleContent>
+			<xs:extension base="null-instanceType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="null-instanceType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="typeType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="named-complex-instanceType">
+		<xs:complexContent>
+			<xs:extension base="complex-instanceType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="complex-instanceType">
+		<xs:sequence>
+			<xs:element name="constructor-args" type="constructor-argsType" minOccurs="0"/>
+			<xs:element name="properties" type="propertiesType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="class" type="typeType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="referenceType">
+		<xs:attribute name="ref" type="wi-nameType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="named-referenceType">
+		<xs:complexContent>
+			<xs:extension base="referenceType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="listType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element name="simple-instance" type="simple-instanceType"/>
+				<xs:element name="complex-instance" type="complex-instanceType"/>
+				<xs:element name="static-instance" type="static-instanceType"/>
+				<xs:element name="reference" type="referenceType"/>
+				<xs:element name="list" type="listType"/>
+				<xs:element name="null-instance" type="null-instanceType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="element-type" type="typeType" use="optional"/>
+		<xs:attribute name="as" type="collection-typeType" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="named-listType">
+		<xs:complexContent>
+			<xs:extension base="listType">
+				<xs:attribute name="name" type="wi-nameType" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="constructor-argsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element name="simple-instance" type="simple-instanceType"/>
+				<xs:element name="complex-instance" type="complex-instanceType"/>
+				<xs:element name="static-instance" type="static-instanceType"/>
+				<xs:element name="reference" type="referenceType"/>
+				<xs:element name="list">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="listType"/>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="null-instance" type="null-instanceType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="propertiesType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:choice>
+				<xs:element name="simple-instance" type="named-simple-instanceType"/>
+				<xs:element name="complex-instance" type="named-complex-instanceType"/>
+				<xs:element name="static-instance" type="static-instanceType"/>
+				<xs:element name="reference" type="named-referenceType"/>
+				<xs:element name="list" type="named-listType"/>
+				<xs:element name="null-instance" type="named-null-instanceType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="name-mappingsType">
+		<xs:sequence>
+			<xs:element name="name-mapping" type="name-mappingType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="name-mappingType">
+		<xs:sequence>
+			<xs:element name="from" type="fromType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="to" type="wi-nameType" use="required"/>
+		<xs:attribute name="from" type="wi-nameType" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="fromType">
+		<xs:restriction base="wi-nameType"/>
+	</xs:simpleType>
+	<!-- Common Types -->
+	<xs:simpleType name="typeType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="wi-nameType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="file-pathType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="collection-typeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="list"/>
+			<xs:enumeration value="array"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

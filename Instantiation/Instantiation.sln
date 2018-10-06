@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runerne.Instantiation", "Runerne.Instantiation\Runerne.Instantiation.csproj", "{0D62AA69-3D8A-4CD0-9B36-EDC4B698B84F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runerne.Instantiation.UnitTest", "Runerne.Instantiation.UnitTest\Runerne.Instantiation.UnitTest.csproj", "{87A519A1-90D7-43AE-9210-EDD24F7A7548}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D62AA69-3D8A-4CD0-9B36-EDC4B698B84F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D62AA69-3D8A-4CD0-9B36-EDC4B698B84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D62AA69-3D8A-4CD0-9B36-EDC4B698B84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D62AA69-3D8A-4CD0-9B36-EDC4B698B84F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A519A1-90D7-43AE-9210-EDD24F7A7548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A519A1-90D7-43AE-9210-EDD24F7A7548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A519A1-90D7-43AE-9210-EDD24F7A7548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A519A1-90D7-43AE-9210-EDD24F7A7548}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F9E93F9-72D9-4D05-8023-7015DD04675B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<context xmlns="http://runerne.dk/Instantiation.Xml">
+  <instances>
+    <static-instance name="My static field value" type="Runerne.Instantiation.Xml.UnitTest.MyValues" member="MyField"/>
+    <static-instance name="My static property value" type="Runerne.Instantiation.Xml.UnitTest.MyValues" member="MyProperty"/>
+    <static-instance name="My const value" type="Runerne.Instantiation.Xml.UnitTest.MyValues" member="MyConstant"/>
+  </instances>
+</context>

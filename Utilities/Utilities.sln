@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runerne.Utilities", "Runerne.Utilities\Runerne.Utilities.csproj", "{9ED265A3-0FE5-4458-8244-76E7511503A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runerne.Utilities.UnitTest", "Runerne.Utilities.UnitTest\Runerne.Utilities.UnitTest.csproj", "{A69ED6B6-A6E9-4382-AD8F-E11593D5B014}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ED265A3-0FE5-4458-8244-76E7511503A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED265A3-0FE5-4458-8244-76E7511503A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED265A3-0FE5-4458-8244-76E7511503A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED265A3-0FE5-4458-8244-76E7511503A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69ED6B6-A6E9-4382-AD8F-E11593D5B014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69ED6B6-A6E9-4382-AD8F-E11593D5B014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69ED6B6-A6E9-4382-AD8F-E11593D5B014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69ED6B6-A6E9-4382-AD8F-E11593D5B014}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBFD4F42-41B6-4BBC-AEA3-105FB0F7FBCF}
+	EndGlobalSection
+EndGlobal
