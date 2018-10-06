@@ -6,7 +6,6 @@ namespace Runerne.Instantiation
 {
     public class StaticInstanceProvider : IInstanceProvider
     {
-        public Type _type;
         public Type DefinedType
         {
             get
@@ -18,6 +17,7 @@ namespace Runerne.Instantiation
         }
         public string MemberName { get; }
 
+        private Type _type;
         private object _instance;
         private Type _definedType = null;
 
