@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Runerne.Utilities;
 
-namespace WorkZone.Utilities.Test.Unit
+namespace Runerne.Utilities.Test.Unit
 {
     [TestClass]
     public class ParseExceptionTest

@@ -1,9 +1,10 @@
-﻿using Runerne.Utilities;
-using Runerne.Xml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Xml.Linq;
+using Runerne.Utilities;
+using Runerne.Xml;
+using Runerne.Instantiation;
 
 namespace Runerne.Instantiation.Xml
 {

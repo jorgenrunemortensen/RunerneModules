@@ -251,7 +251,7 @@ namespace Runerne.Xml.UnitTest
         [TestCategory("GatedCheckIn")]
         public void TestInnerNamespaces()
         {
-            XNamespace myNameSpace = "http://www.kmd.dk/WorkZone";
+            XNamespace myNameSpace = "http://runerne.dk/Modules";
             var xDocumentA = new XDocument();
             xDocumentA.Add(
                 new XElement("root", 
