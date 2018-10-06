@@ -72,5 +72,47 @@ namespace Runerne.Utilities
 
             return buffer + Environment.NewLine + textBlock;
         }
+
+        /// <summary>
+        /// Determines whether a text matches a specific wildcard pattern. A wildcard pattern is considered a pattern, where:
+        /// * replaces zero to many characters in the text.
+        /// ? replaces a single character in the text.
+        /// </summary>
+        /// <param name="pattern">The patten towards which the text is tested.</param>
+        /// <param name="text">The text which is tested against the specified pattern.</param>
+        /// <returns>True, if the text matches the pattern; otherwise false.</returns>
+        public static bool WildcardMatch(string pattern, string text)
+        {
+            return WildcardMatch(pattern, text, 0, 0);
+        }
+
+        private static bool WildcardMatch(string pattern, string text, int patternStartIndex, int textStartIndex)
+        {
+            if (patternStartIndex >= pattern.Length)
+                return textStartIndex >= text.Length;
+
+            var chPattern = pattern[patternStartIndex];
+            switch (chPattern)
+            {
+                case '*':
+                    var subPatternStartIndex = patternStartIndex + 1;
+                    for (var i = 0; i <= text.Length; i++)
+                        if (WildcardMatch(pattern, text, subPatternStartIndex, textStartIndex + i))
+                            return true;
+                    return false;
+
+                case '?':
+                    return WildcardMatch(pattern, text, patternStartIndex + 1, textStartIndex + 1);
+
+                default:
+                    if (textStartIndex >= text.Length)
+                        return false;
+
+                    if (chPattern != text[textStartIndex])
+                        return false;
+
+                    return WildcardMatch(pattern, text, patternStartIndex + 1, textStartIndex + 1);
+            }
+        }
     }
 }

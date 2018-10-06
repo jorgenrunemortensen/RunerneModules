@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{987D3C3E-793F-448C-9DF9-DB3164BA8708}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Runerne.Computation</RootNamespace>
+    <AssemblyName>Runerne.Computation</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Runerne.Utilities">
+      <HintPath>..\..\Utilities\Runerne.Utilities\bin\Debug\Runerne.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DateTime\AddTimeSpans.cs" />
+    <Compile Include="DateTime\AddToDateTime.cs" />
+    <Compile Include="DateTime\DateTimeConstant.cs" />
+    <Compile Include="DateTime\DateTimeDifference.cs" />
+    <Compile Include="DateTime\DateTimeTicks.cs" />
+    <Compile Include="DateTime\DateTimeVariable.cs" />
+    <Compile Include="DateTime\IDateTimeComputable.cs" />
+    <Compile Include="DateTime\IsValidDateTime.cs" />
+    <Compile Include="DateTime\ITimeSpanComputable.cs" />
+    <Compile Include="DateTime\NegateTimeSpan.cs" />
+    <Compile Include="DateTime\Now.cs" />
+    <Compile Include="DateTime\ParseDateTime.cs" />
+    <Compile Include="DateTime\QuantifyDateTime.cs" />
+    <Compile Include="DateTime\TimeSpanConstant.cs" />
+    <Compile Include="DateTime\TimeSpanTikcs.cs" />
+    <Compile Include="IComputable.cs" />
+    <Compile Include="Logic\And.cs" />
+    <Compile Include="Logic\BooleanFalse.cs" />
+    <Compile Include="Logic\BooleanTrue.cs" />
+    <Compile Include="Logic\BooleanVariable.cs" />
+    <Compile Include="Logic\IBooleanComputable.cs" />
+    <Compile Include="Logic\If.cs" />
+    <Compile Include="Logic\Not.cs" />
+    <Compile Include="Logic\Or.cs" />
+    <Compile Include="Logic\XOr.cs" />
+    <Compile Include="Numeric\Add.cs" />
+    <Compile Include="Numeric\INumericComputable.cs" />
+    <Compile Include="Numeric\Invert.cs" />
+    <Compile Include="Numeric\Multiply.cs" />
+    <Compile Include="Numeric\Negate.cs" />
+    <Compile Include="Numeric\NumericConstant.cs" />
+    <Compile Include="Numeric\NumericEquals.cs" />
+    <Compile Include="Numeric\NumericGreaterThan.cs" />
+    <Compile Include="Numeric\NumericGreaterThanOrEquals.cs" />
+    <Compile Include="Numeric\NumericLessThan.cs" />
+    <Compile Include="Numeric\NumericLessThanOrEquals.cs" />
+    <Compile Include="Numeric\NumericVariable.cs" />
+    <Compile Include="Numeric\ParseToNumeric.cs" />
+    <Compile Include="Numeric\ToNumeric.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\ConcatenateStrings.cs" />
+    <Compile Include="String\IndexOfString.cs" />
+    <Compile Include="String\IsNullOrEmpty.cs" />
+    <Compile Include="String\IStringComputable.cs" />
+    <Compile Include="String\StringConstant.cs" />
+    <Compile Include="String\StringEquals.cs" />
+    <Compile Include="String\StringLength.cs" />
+    <Compile Include="String\StringMatchesWildcardPattern.cs" />
+    <Compile Include="String\StringVariable.cs" />
+    <Compile Include="String\SubString.cs" />
+    <Compile Include="String\ToLowerInvariant.cs" />
+    <Compile Include="String\ToString.cs" />
+    <Compile Include="String\ToUpperInvariant.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
