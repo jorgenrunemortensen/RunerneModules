@@ -73,8 +73,8 @@ namespace Runerne.Computation.UnitTest
         [TestCategory("GatedCheckIn")]
         public void ToLowerInvariantTest()
         {
-            var sut = new ToLowerInvariant(new StringConstant("This is KMD"));
-            Assert.AreEqual("this is kmd", sut.Value);
+            var sut = new ToLowerInvariant(new StringConstant("This is Runerne"));
+            Assert.AreEqual("this is runerne", sut.Value);
         }
 
         [TestMethod]
@@ -82,8 +82,8 @@ namespace Runerne.Computation.UnitTest
         [TestCategory("GatedCheckIn")]
         public void ToUpperInvariantTest()
         {
-            var sut = new ToUpperInvariant(new StringConstant("This is KMD"));
-            Assert.AreEqual("THIS IS KMD", sut.Value);
+            var sut = new ToUpperInvariant(new StringConstant("This is Runerne"));
+            Assert.AreEqual("THIS IS RUNERNE", sut.Value);
         }
 
         [TestMethod]
