@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Runerne.Xml")]
-[assembly: AssemblyDescription("Common XML Utilities")]
+[assembly: AssemblyTitle("Runerne.CmdLine")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Runerne.Xml")]
-[assembly: AssemblyCopyright("Copyright © 2019")]
+[assembly: AssemblyProduct("Runerne.CmdLine")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("042b922b-c19e-46b6-b57e-c0b9e335151d")]
+[assembly: Guid("73c00f82-4b73-4d13-8379-e4f2c6b9059a")]
 
 // Version information for an assembly consists of the following four values:
 //
