@@ -31,14 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Runerne.Instantiation">
-      <HintPath>..\..\Instantiation\Runerne.Instantiation\bin\Debug\Runerne.Instantiation.dll</HintPath>
+    <Reference Include="Runerne.Instantiation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Instantiation.1.0.0\lib\net472\Runerne.Instantiation.dll</HintPath>
+    </Reference>
+    <Reference Include="Runerne.Reflection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Reflection.1.0.0\lib\net472\Runerne.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Runerne.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Runerne.Utilities.1.0.0\lib\net472\Runerne.Utilities.dll</HintPath>
     </Reference>
-    <Reference Include="Runerne.Xml">
-      <HintPath>..\..\Xml\Runerne.Xml\bin\Debug\Runerne.Xml.dll</HintPath>
+    <Reference Include="Runerne.Xml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Xml.1.0.0\lib\net472\Runerne.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
