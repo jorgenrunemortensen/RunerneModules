@@ -5,14 +5,29 @@ using System.Reflection;
 
 namespace Runerne.Reflection
 {
+    /// <summary>
+    /// Utility that supports determining types based in specific parameters.
+    /// </summary>
     public static class ReflectionUtilities
     {
+        /// <summary>
+        /// Find the types which implements a given interface.
+        /// </summary>
+        /// <param name="theInterface">The interface that the returned types implements.</param>
+        /// <param name="assemblyFullPathes">The pathes to the assemblies, which types are searched.</param>
+        /// <returns>The types contained in the specified assemblies and which implements the specified interface.</returns>
         public static IEnumerable<Type> GetImplementators(Type theInterface, params string[] assemblyFullPathes)
         {
             var interfaceName = theInterface.FullName;
             return GetImplementators(interfaceName, assemblyFullPathes);
         }
 
+        /// <summary>
+        /// Find the types which implements a given interface.
+        /// </summary>
+        /// <param name="fullInterfaceName">The fully qualified name of the interface that the returned types implements.</param>
+        /// <param name="assemblyFullPathes">The pathes to the assemblies, which types are searched.</param>
+        /// <returns>The types contained in the specified assemblies and which implements the specified interface.</returns>
         public static IEnumerable<Type> GetImplementators(string fullInterfaceName, params string[] assemblyFullPathes)
         {
             var implementators = new List<Type>();
@@ -23,27 +38,43 @@ namespace Runerne.Reflection
             return implementators;
         }
 
+        /// <summary>
+        /// Determines the constructor of a class that best matches the specified parameter types.
+        /// </summary>
+        /// <param name="type">The class.</param>
+        /// <param name="parameterTypes">The constructor parameter types.</param>
+        /// <returns>The best matching constructor.</returns>
         public static ConstructorInfo GetBestMatchingConstructor(Type type, IEnumerable<Type> parameterTypes)
         {
-            var parameterTypeList = parameterTypes.ToList();
-            
-            for(;;)
+            var parameterTypeList = parameterTypes.ToList(); // A list of parameter types, that the method can manipulate.
+
+            for (; ; )
             {
                 var constructorInfo = type.GetConstructor(parameterTypeList.ToArray());
-                if(constructorInfo != null)
-                    return constructorInfo;
+                if (constructorInfo != null)
+                    return constructorInfo; // Found a match
 
                 if (parameterTypeList.Count == 0)
                 {
+                    // Nothing found -> Build and throw an exception.
                     var parameterTypeNameList = new List<string>();
-                    foreach(var parameterType in parameterTypes)
+                    foreach (var parameterType in parameterTypes)
                         parameterTypeNameList.Add(parameterType.ToString());
-                    throw new Exception($"No constructor found for {typeof (Type)} matching the following types: {string.Join(", ", parameterTypeNameList.ToArray())}");
+
+                    throw new Exception($"No constructor found for {typeof(Type)} matching the following types: {string.Join(", ", parameterTypeNameList.ToArray())}");
                 }
+
+                // Let us remove the last parameter type.
                 parameterTypeList.RemoveAt(parameterTypeList.Count - 1);
-            }            
+            }
         }
 
+        /// <summary>
+        /// Creates an instance of a type by using the constructor and parameters provided.
+        /// </summary>
+        /// <param name="constructorInfo">The constructor used for creating the instance.</param>
+        /// <param name="parameters">The parameters for the constructor.</param>
+        /// <returns>The created instance.</returns>
         public static object CreateInstance(ConstructorInfo constructorInfo, params object[] parameters)
         {
             var instance = constructorInfo.Invoke(parameters);
@@ -106,7 +137,7 @@ namespace Runerne.Reflection
         private static void CollectImplementators(string fullInterfaceName, string assemblyFullPath, IList<Type> implementators)
         {
             var assembly = Assembly.LoadFrom(assemblyFullPath);
-            foreach(var type in assembly.GetTypes())
+            foreach (var type in assembly.GetTypes())
             {
                 if (!type.IsPublic)
                     continue;
@@ -123,7 +154,7 @@ namespace Runerne.Reflection
 
         private static bool TypeImplementsInterface(Type type, string fullInterfaceName)
         {
-            foreach(var implementedType in type.GetInterfaces())
+            foreach (var implementedType in type.GetInterfaces())
             {
                 var fullImplementedTypeName = implementedType.FullName;
                 if (fullImplementedTypeName != fullInterfaceName)
@@ -152,6 +183,12 @@ namespace Runerne.Reflection
             return GetMostCommonClass(t1Parent, t2);
         }
 
+        /// <summary>
+        /// Finds the most detailed but common class of the specified types.
+        /// </summary>
+        /// <param name="type1">The first specified type.</param>
+        /// <param name="types">THe second, third and so forward types.</param>
+        /// <returns>The most detailed but common class of the specified types.</returns>
         public static Type GetCommonClass(Type type1, params Type[] types)
         {
             var mostCommon = type1;
