@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Runerne.Instantiation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Framework for dependency injection. The framework needs to be configured by code.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Runerne.Instantiation")]

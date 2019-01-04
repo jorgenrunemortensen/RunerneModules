@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Runerne.Instantiation</RootNamespace>
     <AssemblyName>Runerne.Instantiation</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +34,11 @@
     <Reference Include="Runerne.Reflection">
       <HintPath>..\..\Reflection\Runerne.Reflection\bin\Debug\Runerne.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="Runerne.Utilities">
-      <HintPath>..\..\Utilities\Runerne.Utilities\bin\Debug\Runerne.Utilities.dll</HintPath>
+    <Reference Include="Runerne.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Utilities.1.0.0\lib\net472\Runerne.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Runerne.Xml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Xml.1.0.0\lib\net472\Runerne.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +73,10 @@
     <Compile Include="RINamespaceException.cs" />
     <Compile Include="SimpleInstanceProvider.cs" />
     <Compile Include="StaticInstanceProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Runerne.Instantiation.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
