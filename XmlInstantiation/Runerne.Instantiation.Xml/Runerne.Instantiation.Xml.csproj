@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Runerne.Instantiation.Xml</RootNamespace>
     <AssemblyName>Runerne.Instantiation.Xml</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +34,8 @@
     <Reference Include="Runerne.Instantiation">
       <HintPath>..\..\Instantiation\Runerne.Instantiation\bin\Debug\Runerne.Instantiation.dll</HintPath>
     </Reference>
-    <Reference Include="Runerne.Utilities">
-      <HintPath>..\..\Utilities\Runerne.Utilities\bin\Debug\Runerne.Utilities.dll</HintPath>
+    <Reference Include="Runerne.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Runerne.Utilities.1.0.0\lib\net472\Runerne.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Runerne.Xml">
       <HintPath>..\..\Xml\Runerne.Xml\bin\Debug\Runerne.Xml.dll</HintPath>
@@ -56,6 +57,10 @@
     <EmbeddedResource Include="context.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Runerne.Instantiation.Xml.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

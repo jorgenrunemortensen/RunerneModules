@@ -6,6 +6,16 @@ namespace Runerne.Instantiation.Xml.UnitTest
     [TestClass]
     public class XmlStaticTest
     {
+        private static readonly string StaticXml = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+<context xmlns=""http://runerne.dk/Instantiation.Xml"">
+  <instances>
+    <static-instance name=""My static field value"" type=""Runerne.Instantiation.Xml.UnitTest.MyValues"" member=""MyField""/>
+    <static-instance name=""My static property value"" type=""Runerne.Instantiation.Xml.UnitTest.MyValues"" member=""MyProperty""/>
+    <static-instance name=""My const value"" type=""Runerne.Instantiation.Xml.UnitTest.MyValues"" member=""MyConstant""/>
+  </instances>
+</context>
+";
+
         private IContext _context;
 
         private void Given_A_Context()
@@ -13,7 +23,7 @@ namespace Runerne.Instantiation.Xml.UnitTest
             if (_context != null)
                 return;
 
-            _context = XmlLoader.Load("..\\..\\TestFiles\\Static-Test.xml");
+            _context = XmlLoader.Parse(StaticXml);
         }
 
         [TestMethod]

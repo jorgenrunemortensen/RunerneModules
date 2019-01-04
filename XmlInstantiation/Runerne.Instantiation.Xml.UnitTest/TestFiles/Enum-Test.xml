@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<context xmlns="http://runerne.dk/Instantiation.Xml">
-  <includes>
-  </includes>
-  <instances>
-    <simple-instance name="Mood" type="Runerne.Instantiation.Xml.UnitTest.Color">Green</simple-instance>
-  </instances>
-</context>
-  

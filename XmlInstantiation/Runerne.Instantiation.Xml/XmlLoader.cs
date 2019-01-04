@@ -8,21 +8,42 @@ using Runerne.Instantiation;
 
 namespace Runerne.Instantiation.Xml
 {
+    /// <summary>
+    /// This class is responsible for building Instantiation contexts from an XML sources.
+    /// </summary>
     public static class XmlLoader
     {
         private static readonly XNamespace Ns = "http://runerne.dk/Instantiation.Xml";
 
+        /// <summary>
+        /// Loads a context by parsing the specified file. The optional specified arguments will be properties in the context.
+        /// </summary>
+        /// <param name="filePath">Path to the XML file configuring the context.</param>
+        /// <param name="arguments">Initial properties.</param>
+        /// <returns>The loaded context.</returns>
         public static RIContext Load(string filePath, IDictionary<string, object> arguments = null)
         {
             var xDocument = XDocument.Load(filePath, LoadOptions.SetLineInfo);
             return Parse(xDocument, arguments);
         }
 
+        /// <summary>
+        /// Loads a context by parsing the specified XML string. The specified arguments will be properties in the context.
+        /// </summary>
+        /// <param name="xml">The XML string that will be parsed./param>
+        /// <param name="arguments">Initial properties.</param>
+        /// <returns>The loaded context.</returns>
         public static RIContext Parse(string xml, IDictionary<string, object> arguments = null)
         {
             return Parse(XDocument.Parse(xml), arguments);
         }
 
+        /// <summary>
+        /// Loads a context by interpreting the specified document. The specified arguments will be properties in the context.
+        /// </summary>
+        /// <param name="xDocument">The document that is interpreted.</param>
+        /// <param name="arguments">Initial properties.</param>
+        /// <returns>The loaded context.</returns>
         public static RIContext Parse(XDocument xDocument, IDictionary<string, object> arguments = null)
         {
             var validator = new XmlValidator("context.xsd", "Runerne.Instantiation.Xml", Assembly.GetExecutingAssembly());
@@ -34,6 +55,12 @@ namespace Runerne.Instantiation.Xml
             return context;
         }
 
+        /// <summary>
+        /// Loads a context by interpreting the specified root element. The specified arguments will be properties in the context.
+        /// </summary>
+        /// <param name="xRoot">The root element that will be interpreted along with all the child elements.</param>
+        /// <param name="arguments">Initial properties.</param>
+        /// <returns>The loaded context.</returns>
         public static RIContext Parse(XElement xRoot, IDictionary<string, object> arguments = null)
         {
             if (arguments == null)

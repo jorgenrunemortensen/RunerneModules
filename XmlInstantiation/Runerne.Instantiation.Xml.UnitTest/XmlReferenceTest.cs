@@ -5,6 +5,19 @@ namespace Runerne.Instantiation.Xml.UnitTest
     [TestClass]
     public class XmlReferenceTest
     {
+        private static readonly string ReferenceXml = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+<context xmlns=""http://runerne.dk/Instantiation.Xml"">
+  <includes>
+    <include>Runerne.Instantiation.dll</include>
+    <include>Runerne.Instantiation.Xml.UnitTest.dll</include>
+  </includes>
+  <instances>
+    <reference name=""Lazy evaluated rerence"" ref=""My object 1""/>
+    <simple-instance name=""My object 1"" type=""string"">This is my object</simple-instance>
+    <reference name=""My indirect object 1"" ref=""My object 1""/>
+  </instances>
+</context>";
+
         private IContext _context;
 
         private void Given_A_Context()
@@ -12,7 +25,7 @@ namespace Runerne.Instantiation.Xml.UnitTest
             if (_context != null)
                 return;
 
-            _context = XmlLoader.Load("..\\..\\TestFiles\\Reference-Test.xml");
+            _context = XmlLoader.Parse(ReferenceXml);
         }
 
 
